@@ -20,7 +20,6 @@ public class Bonus {
         Scanner reader=new Scanner (System.in);
         System.out.println("Ingrese el tamaño del rangoli: ");
         N=reader.nextInt();
-<<<<<<< HEAD
         for(char i='a';i<='z';i++){
             System.out.print("-"+i);
         }
@@ -29,15 +28,3 @@ public class Bonus {
             }
         }
     }
-=======
-        for(char i='z';i>='a';i--){
-            for(char j='a';j>='z';j++){
-                System.out.println("-"+j);
-            }
-            if(N>0){
-            System.out.print("-"+i);
-            }
-        }
-    }
-}
->>>>>>> 1444ba2b308bad55720dbf67ce60950eecdcd29d

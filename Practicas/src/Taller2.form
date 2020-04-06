@@ -127,17 +127,23 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="13" green="76" red="d9" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Spanish"/>
+            <Property name="text" type="java.lang.String" value="Sp"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSpanishActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnEnglish">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="21" green="ca" red="e0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="English"/>
+            <Property name="text" type="java.lang.String" value="En"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEnglishActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnShow">
           <Properties>
@@ -217,9 +223,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblyourname" alignment="1" min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -351,13 +357,20 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtNumber" min="-2" pref="109" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
-                          <Component id="btnSearch" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel4" min="-2" pref="183" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtNumber" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Component id="btnSearch" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="lblLetter" min="-2" pref="82" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="lblLetter" min="-2" pref="82" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="btnMay" max="32767" attributes="0"/>
                           <Component id="btnMin" max="32767" attributes="0"/>
@@ -374,19 +387,17 @@
                           <Group type="102" attributes="0">
                               <Component id="btnMay" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnMin" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnMin" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblLetter" alignment="3" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="txtNumber" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                      <Component id="btnSearch" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblLetter" min="-2" pref="46" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtNumber" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="btnSearch" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="33" max="32767" attributes="0"/>
@@ -414,7 +425,11 @@
                   <Font name="DejaVu Sans Condensed" size="18" style="2"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Search"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblLetter">
               <Properties>
@@ -423,6 +438,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="?"/>
               </Properties>
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="lblLetterKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnMay">
               <Properties>
@@ -430,7 +448,11 @@
                   <Color blue="c0" green="50" red="b7" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="May"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMayActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnMin">
               <Properties>
@@ -438,7 +460,11 @@
                   <Color blue="e4" green="6" red="e3" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Min"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMinActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -1,3 +1,8 @@
+
+
+
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,16 +20,20 @@ public class Taller2 extends javax.swing.JFrame {
      */
     public Taller2() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     public void EnableButtons(){
         if(!txtName.getText().isEmpty()){
             btnShow.setEnabled(true);
             btnReset.setEnabled(true);
+            btnSearch.setEnabled(true);
         }else{
             btnShow.setEnabled(false);
             btnReset.setEnabled(false);
+            btnSearch.setEnabled(false);
         }
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -76,11 +85,21 @@ public class Taller2 extends javax.swing.JFrame {
         });
 
         btnSpanish.setBackground(new java.awt.Color(217, 118, 19));
-        btnSpanish.setText("Spanish");
+        btnSpanish.setText("Sp");
+        btnSpanish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSpanishActionPerformed(evt);
+            }
+        });
 
         btnEnglish.setBackground(new java.awt.Color(224, 202, 33));
-        btnEnglish.setText("English");
+        btnEnglish.setText("En");
         btnEnglish.setEnabled(false);
+        btnEnglish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnglishActionPerformed(evt);
+            }
+        });
 
         btnShow.setBackground(new java.awt.Color(35, 224, 219));
         btnShow.setFont(new java.awt.Font("DejaVu Sans Condensed", 2, 18)); // NOI18N
@@ -179,15 +198,38 @@ public class Taller2 extends javax.swing.JFrame {
         btnSearch.setBackground(new java.awt.Color(100, 105, 203));
         btnSearch.setFont(new java.awt.Font("DejaVu Sans Condensed", 2, 18)); // NOI18N
         btnSearch.setText("Search");
+        btnSearch.setEnabled(false);
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         lblLetter.setFont(new java.awt.Font("Ubuntu", 3, 48)); // NOI18N
         lblLetter.setText("?");
+        lblLetter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                lblLetterKeyReleased(evt);
+            }
+        });
 
         btnMay.setBackground(new java.awt.Color(183, 80, 192));
         btnMay.setText("May");
+        btnMay.setEnabled(false);
+        btnMay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMayActionPerformed(evt);
+            }
+        });
 
         btnMin.setBackground(new java.awt.Color(227, 6, 228));
         btnMin.setText("Min");
+        btnMin.setEnabled(false);
+        btnMin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -196,12 +238,16 @@ public class Taller2 extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addComponent(lblLetter, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblLetter, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnMay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -215,16 +261,15 @@ public class Taller2 extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btnMay)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnMin))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnMin)
+                            .addComponent(lblLetter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(btnSearch))
-                            .addComponent(lblLetter, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(btnSearch)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -258,9 +303,9 @@ public class Taller2 extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lblyourname, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblyourname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNamemay, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -317,11 +362,14 @@ public class Taller2 extends javax.swing.JFrame {
         //Show name in MIN
         lblNamemin.setText(yourname.toLowerCase());
         //Show total characters
-        int letter=0;
-        for(int i=0;i<=yourname.length();i++){
-            letter=i;
+        lblChar.setText(Integer.toString(yourname.length()));
+        //Show initial capital letter
+        String palabra=" ";
+        for(String newnombre:yourname.split(" ")){
+            palabra+=newnombre.substring(0,1).toUpperCase()+newnombre.substring(1,newnombre.length()).toLowerCase()+" ";
         }
-        lblChar.setText(Integer.toString(letter));
+        palabra=palabra.trim();
+        lblCapital.setText(palabra);
     }//GEN-LAST:event_btnShowActionPerformed
 
     private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
@@ -330,9 +378,86 @@ public class Taller2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNameKeyReleased
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        // TODO add your handling code here:
+        // Reset text
         txtName.setText("");
     }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // Search number
+        String yourname=txtName.getText();
+        int number=Integer.parseInt(txtNumber.getText());
+        char letter_finder=yourname.charAt(number-1);
+        lblLetter.setText(String.valueOf(letter_finder));
+        if(Character.isLowerCase(letter_finder)){
+            btnMay.setEnabled(true);
+            btnMin.setEnabled(false);
+        }else{
+            btnMin.setEnabled(true);
+            btnMay.setEnabled(false);
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void lblLetterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblLetterKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblLetterKeyReleased
+
+    private void btnSpanishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpanishActionPerformed
+        // Spanish
+        jLabel1.setText("Tu nombre:");
+        btnShow.setText("Mostrar");
+        btnReset.setText("Limpiar");
+        jLabel2.setText("Tu nombre es:");
+        jLabel3.setText("Tu nombre en MAY:");
+        jLabel5.setText("Tu nombre en MIN:");
+        jLabel7.setText("Total caracteres:");
+        jLabel9.setText("Iniciales mayúsculas:");
+        jLabel4.setText("Digite un número:");
+        btnSearch.setText("Buscar");
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Información", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu", 2, 24)));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscador de letras", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu", 2, 18)));
+        setTitle("Administrador de cadenas");
+        btnSpanish.setEnabled(false);
+        btnEnglish.setEnabled(true);
+    }//GEN-LAST:event_btnSpanishActionPerformed
+
+    private void btnEnglishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnglishActionPerformed
+        // English
+        jLabel1.setText("Your name:");
+        btnShow.setText("Show");
+        btnReset.setText("Reset");
+        jLabel2.setText("Your name is:");
+        jLabel3.setText("Your name in MAY:");
+        jLabel5.setText("Your name in MIN:");
+        jLabel7.setText("Total characters:");
+        jLabel9.setText("Initial capital letters:");
+        jLabel4.setText("Type a number:");
+        btnSearch.setText("Search");
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Information", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu", 2, 24)));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Letter finder", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu", 2, 18)));
+        setTitle("String Manager");
+        btnSpanish.setEnabled(true);
+        btnEnglish.setEnabled(false);        
+    }//GEN-LAST:event_btnEnglishActionPerformed
+
+    private void btnMayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMayActionPerformed
+        // Convert to capital letter
+        String letters=lblLetter.getText();
+        if(letters.equals(letters.toLowerCase())){
+            lblLetter.setText(letters.toUpperCase());
+            btnMay.setEnabled(false);
+            btnMin.setEnabled(true);
+        }
+    }//GEN-LAST:event_btnMayActionPerformed
+
+    private void btnMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinActionPerformed
+        // Convert to lowercase letter
+        String letters=lblLetter.getText();
+        if(letters.equals(letters.toUpperCase())){
+            lblLetter.setText(letters.toLowerCase());
+            btnMin.setEnabled(false);
+            btnMay.setEnabled(true);
+        }
+    }//GEN-LAST:event_btnMinActionPerformed
 
     /**
      * @param args the command line arguments

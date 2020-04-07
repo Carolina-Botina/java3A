@@ -380,6 +380,9 @@ public class Taller2 extends javax.swing.JFrame {
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // Reset text
         txtName.setText("");
+        btnShow.setEnabled(false);
+        btnSearch.setEnabled(false);
+        btnReset.setEnabled(false);
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed

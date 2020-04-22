@@ -50,7 +50,7 @@ public class Colors extends javax.swing.JFrame {
         setTitle("Colors");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(251, 248, 246));
+        jPanel1.setBackground(new java.awt.Color(248, 240, 234));
 
         jLabel1.setBackground(new java.awt.Color(129, 236, 223));
         jLabel1.setFont(new java.awt.Font("Ubuntu", 3, 24)); // NOI18N
@@ -237,6 +237,59 @@ public class Colors extends javax.swing.JFrame {
             default:
                 break;
         }
+        int i=1;
+        if(i==1){
+        switch(color){
+            case "Red":
+                lblPreColor.setBackground(Color.YELLOW);
+                break;
+            case "Blue":
+                lblPreColor.setBackground(Color.RED);
+                break;
+            case "Green":
+                lblPreColor.setBackground(Color.BLUE);
+                break;
+            case "Black":
+                lblPreColor.setBackground(Color.GREEN);
+                break;
+            case "White":
+                lblPreColor.setBackground(Color.BLACK);
+                break;
+            case "Brown":
+                lblPreColor.setBackground(Color.WHITE);
+                break;
+            default:
+                break;
+        }
+        }
+        i=0;
+        /*if(i==0){
+        switch(color){
+            case "Yellow":
+                lblPreColor.setBackground(Color.YELLOW);
+                break;
+            case "Red":
+                lblPreColor.setBackground(Color.RED);
+                break;
+            case "Blue":
+                lblPreColor.setBackground(Color.BLUE);
+                break;
+            case "Green":
+                lblPreColor.setBackground(Color.GREEN);
+                break;
+            case "White":
+                lblPreColor.setBackground(Color.BLACK);
+                break;
+            case "Black":
+                lblPreColor.setBackground(Color.WHITE);
+                break;
+            case "Brown":
+                lblPreColor.setBackground(colorbrown);
+                break;
+            default:
+                break;
+        }
+        }*/
     }//GEN-LAST:event_btnSelectActionPerformed
 
     private void txtNewcolorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNewcolorActionPerformed

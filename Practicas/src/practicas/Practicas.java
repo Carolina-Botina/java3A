@@ -52,14 +52,14 @@ public class Practicas {
              System.out.println("Name "+(i+1)+": "+nam[i]);
          }*/
         
-        int suma=0;
+        int suma=0,d=0;
         int numbers[]=new int[100];
         Scanner reader=new Scanner(System.in);
         for(int i=0;i<numbers.length;i++){
             System.out.println("Ingrese un número: ");
             numbers[i]=reader.nextInt();
-            for(int j=0;j<numbers[i];j++){
-                suma=numbers[i]+j;
+            for(int j=1;j<numbers.length;j++){
+                suma=numbers[i]+numbers[j-1];
             }
         }
         System.out.println("suma: "+suma);

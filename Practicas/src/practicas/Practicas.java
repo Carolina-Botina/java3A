@@ -53,8 +53,9 @@ public class Practicas {
          }*/
         
         int suma=0,d=0;
-        int numbers[]=new int[100];
+        int numbers[]=new int[4];
         Scanner reader=new Scanner(System.in);
+        //while(d==0){
         for(int i=0;i<numbers.length;i++){
             System.out.println("Ingrese un número: ");
             numbers[i]=reader.nextInt();
@@ -63,5 +64,6 @@ public class Practicas {
             }
         }
         System.out.println("suma: "+suma);
+        //}
     }
    }

@@ -49,8 +49,8 @@ public class Number_race extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(251, 251, 251));
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 3, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(34, 25, 25));
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(228, 107, 31));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Number race");
 

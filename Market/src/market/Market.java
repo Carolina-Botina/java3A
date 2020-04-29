@@ -17,6 +17,7 @@ public class Market {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
         // ArrayList
         ArrayList<String> cars=new ArrayList<String>();
         cars.add("Chevrolet");//0

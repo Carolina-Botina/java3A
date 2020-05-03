@@ -546,7 +546,7 @@ public class Number_race extends javax.swing.JFrame {
     private javax.swing.JButton btnPlay;
     private javax.swing.JButton btnPlayer;
     private javax.swing.JComboBox<String> cmbLevel;
-    private javax.swing.JComboBox<String> cmbNumberPlayers;
+    public static javax.swing.JComboBox<String> cmbNumberPlayers;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

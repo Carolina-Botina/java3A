@@ -2,6 +2,7 @@
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /*
@@ -60,6 +61,11 @@ public class Config extends javax.swing.JFrame {
         txtNumberPlayer.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNumberPlayer.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         txtNumberPlayer.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtNumberPlayer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumberPlayerKeyTyped(evt);
+            }
+        });
 
         btnAddPlayer.setText("Add");
         btnAddPlayer.addActionListener(new java.awt.event.ActionListener() {
@@ -116,13 +122,27 @@ public class Config extends javax.swing.JFrame {
     private void btnAddPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPlayerActionPerformed
         // Add players
         int players=Integer.parseInt(txtNumberPlayer.getText());
+        //int number=Number_race.cmbNumberPlayers.getSelectedIndex();
         //Number_race.cmbNumberPlayers.addItem(Integer.toString(players));
-        if(players==1 || players==2|| players==3){
-            
-        }else{
-            Number_race.cmbNumberPlayers.addItem(Integer.toString(players));
-        }
+            if(players==1 || players==2 || players==3){
+                JOptionPane.showMessageDialog(null, "That number's alredy been entered. Please enter another one");
+                txtNumberPlayer.setText("");
+            }else{
+                Number_race.cmbNumberPlayers.addItem(Integer.toString(players));
+                JOptionPane.showMessageDialog(null,"Successfully added!");
+                txtNumberPlayer.setText("");
+            }
+            this.setVisible(false);
     }//GEN-LAST:event_btnAddPlayerActionPerformed
+
+    private void txtNumberPlayerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumberPlayerKeyTyped
+        // Enter only numbers
+        char onN=evt.getKeyChar();
+        if(Character.isLetter(onN)){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNumberPlayerKeyTyped
 
     /**
      * @param args the command line arguments

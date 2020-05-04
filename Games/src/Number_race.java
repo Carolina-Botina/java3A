@@ -284,6 +284,11 @@ public class Number_race extends javax.swing.JFrame {
 
         btnAgain.setText("Try again");
         btnAgain.setEnabled(false);
+        btnAgain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgainActionPerformed(evt);
+            }
+        });
 
         btnAboutOf.setText("About of");
         btnAboutOf.setEnabled(false);
@@ -422,6 +427,8 @@ public class Number_race extends javax.swing.JFrame {
         btnAgain.setEnabled(true);
         btnConfig.setEnabled(true);
         btnPlayer.setEnabled(true);
+        cmbNumberPlayers.setEnabled(false);
+        cmbLevel.setEnabled(false);
     }//GEN-LAST:event_btnPlayActionPerformed
 
     private void btnPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayerActionPerformed
@@ -477,6 +484,40 @@ public class Number_race extends javax.swing.JFrame {
             default:
                 break;
         }
+        
+        //Logic
+        int turn=0,positions=0,missing_p=0,returns=0;
+        //int level1[]=new int[50];
+        int level2[]=new int[100];
+        int level3[]=new int[200];
+        //int turn_p;
+        /*String turn="1";
+        turn=cmbNumberPlayers.getSelectedItem().toString();
+        turn_p=Integer.parseInt(turn);
+        for(int i=0;i<=turn.length();i++){
+            turn_p=i;
+        }
+        System.out.println("turno: "+turn_p);
+        lblTurn.setText(Integer.toString(turn_p));*/
+        String levels=cmbLevel.getSelectedItem().toString();
+        int nump=cmbNumberPlayers.getSelectedIndex();
+        int turn2[]=new int[nump];
+        /*for(int i=0;i<=turn2.length;i++){
+            lblTurn.setText(Integer.toString(i+1));
+            System.out.println("turnos: "+i);
+        }*/
+        
+        switch(levels){
+            case "Basic":
+                int level1[]=new int[50];
+                do{
+                for(int i=0;i<turn2.length;i++){
+                    lblTurn.setText(Integer.toString(i+1));
+                    System.out.println("turnos: "+i);
+                }
+                }while(positions==50);
+        }
+        
     }//GEN-LAST:event_btnPlayerActionPerformed
 
     private void btnConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigActionPerformed
@@ -490,6 +531,18 @@ public class Number_race extends javax.swing.JFrame {
         AboutOf information=new AboutOf();
         information.setVisible(true);
     }//GEN-LAST:event_btnAboutOfActionPerformed
+
+    private void btnAgainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgainActionPerformed
+        // TODO add your handling code here:
+        btnAboutOf.setEnabled(false);
+        btnConfig.setEnabled(false);
+        btnPlayer.setEnabled(false);
+        cmbNumberPlayers.setEnabled(true);
+        cmbLevel.setEnabled(true);
+        btnAgain.setEnabled(false);
+        lblDice1.setIcon(new ImageIcon(getClass().getResource("/gifs/dado_in.gif")));
+        lblDice2.setIcon(new ImageIcon(getClass().getResource("/gifs/dado_in.gif")));
+    }//GEN-LAST:event_btnAgainActionPerformed
 
     /**
      * @param args the command line arguments

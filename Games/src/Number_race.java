@@ -18,6 +18,8 @@ import javax.swing.JPanel;
  */
 public class Number_race extends javax.swing.JFrame {
     FondoPanel background=new FondoPanel();
+    int positions=0;
+    int pairs=0;
     /**
      * Creates new form NumberRace
      */
@@ -429,6 +431,8 @@ public class Number_race extends javax.swing.JFrame {
         btnPlayer.setEnabled(true);
         cmbNumberPlayers.setEnabled(false);
         cmbLevel.setEnabled(false);
+        btnPlayer.setText("Play-Player 1");
+        btnPlay.setEnabled(false);
     }//GEN-LAST:event_btnPlayActionPerformed
 
     private void btnPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayerActionPerformed
@@ -486,7 +490,7 @@ public class Number_race extends javax.swing.JFrame {
         }
         
         //Logic
-        int turn=0,positions=0,missing_p=0,returns=0;
+        int turn=1,missing_p=0,returns=0;
         //int level1[]=new int[50];
         int level2[]=new int[100];
         int level3[]=new int[200];
@@ -500,23 +504,62 @@ public class Number_race extends javax.swing.JFrame {
         System.out.println("turno: "+turn_p);
         lblTurn.setText(Integer.toString(turn_p));*/
         String levels=cmbLevel.getSelectedItem().toString();
-        int nump=cmbNumberPlayers.getSelectedIndex();
-        int turn2[]=new int[nump];
+        //int nump=cmbNumberPlayers.getSelectedIndex();
+        //int turn2[]=new int[nump];
         /*for(int i=0;i<=turn2.length;i++){
             lblTurn.setText(Integer.toString(i+1));
             System.out.println("turnos: "+i);
         }*/
         
-        switch(levels){
+        /*switch(levels){
             case "Basic":
                 int level1[]=new int[50];
                 do{
-                for(int i=0;i<turn2.length;i++){
+                for(int i=0;i<=turn2.length;i++){
                     lblTurn.setText(Integer.toString(i+1));
                     System.out.println("turnos: "+i);
+                    if(){
+                    }
                 }
                 }while(positions==50);
+        }*/
+        
+        //----------------------------------------------------------------------
+        int nump=Integer.parseInt(cmbNumberPlayers.getSelectedItem().toString());
+        int player1=0,player2=0,player3=0;
+        switch(levels){
+            case "Basic":
+                int level1[]=new int[50];
+                if(nump==1){
+                    positions+=(d1+d2);
+                    lblPositions.setText(Integer.toString(positions));
+                    System.out.println("P: "+positions);
+                    missing_p=(50-positions);
+                    lblMissing.setText(Integer.toString(missing_p));
+
+                }
+                if(d1==d2){
+                    pairs++;
+                    lblPairs.setText(Integer.toString(pairs));
+                }
+                if(positions>=50){
+                    lblWinner.setText("Player 1");
+                    btnPlayer.setEnabled(false);
+                    positions=0;
+                }
+                break;
+            case "Intermediate":
+                break;
+            case "Advanced":
+                break;
+                
         }
+        
+        
+        
+        
+        
+        
         
     }//GEN-LAST:event_btnPlayerActionPerformed
 
@@ -542,6 +585,14 @@ public class Number_race extends javax.swing.JFrame {
         btnAgain.setEnabled(false);
         lblDice1.setIcon(new ImageIcon(getClass().getResource("/gifs/dado_in.gif")));
         lblDice2.setIcon(new ImageIcon(getClass().getResource("/gifs/dado_in.gif")));
+        lblPositions.setText("#");
+        lblTurn.setText("#");
+        lblMissing.setText("#");
+        lblPairs.setText("0");
+        btnPlayer.setText("Play-Player #");
+        btnPlay.setEnabled(true);
+        lblWinner.setText("?");
+        pairs=0;
     }//GEN-LAST:event_btnAgainActionPerformed
 
     /**

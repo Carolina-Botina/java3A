@@ -20,7 +20,7 @@ public class Number_race extends javax.swing.JFrame {
     FondoPanel background=new FondoPanel();
     int positions=0;
     int pairs=0;
-    int turn=2;
+    int turn=2,turn2=1;
     int player1_po=0;
     int player2_po=0;
     int pairsplayer2=0,pairsplayer1=0;
@@ -496,123 +496,214 @@ public class Number_race extends javax.swing.JFrame {
         }
         
         //Game Logic
-        int missing_p=0,returns=0,missing_player2=0,missing_player1=0;
-        //int level1[]=new int[50];
-        int level2[]=new int[100];
-        int level3[]=new int[200];
-        //int turn_p;
-        /*String turn="1";
-        turn=cmbNumberPlayers.getSelectedItem().toString();
-        turn_p=Integer.parseInt(turn);
-        for(int i=0;i<=turn.length();i++){
-            turn_p=i;
-        }
-        System.out.println("turno: "+turn_p);
-        lblTurn.setText(Integer.toString(turn_p));*/
+        int missing_p=0,missing_player2=0,missing_player1=0;
         String levels=cmbLevel.getSelectedItem().toString();
-        //int nump=cmbNumberPlayers.getSelectedIndex();
-        //int turn2[]=new int[nump];
-        /*for(int i=0;i<=turn2.length;i++){
-            lblTurn.setText(Integer.toString(i+1));
-            System.out.println("turnos: "+i);
-        }*/
-        
-        /*switch(levels){
-            case "Basic":
-                int level1[]=new int[50];
-                do{
-                for(int i=0;i<=turn2.length;i++){
-                    lblTurn.setText(Integer.toString(i+1));
-                    System.out.println("turnos: "+i);
-                    if(){
-                    }
-                }
-                }while(positions==50);
-        }*/
-        
-        //----------------------------------------------------------------------
         int nump=Integer.parseInt(cmbNumberPlayers.getSelectedItem().toString());
         int player3_po=0;
         switch(levels){
             case "Basic":
-                int level1[]=new int[50];
                 if(nump==1){
                     positions+=(d1+d2);
                     lblPositions.setText(Integer.toString(positions));
-                    //System.out.println("P: "+positions);
                     missing_p=(50-positions);
                     lblMissing.setText(Integer.toString(missing_p));
                     lblTurn.setText("1");
-                if(d1==d2){
-                    pairs++;
-                    lblPairs.setText(Integer.toString(pairs));
+                    if(d1==d2){
+                        pairs++;
+                        lblPairs.setText(Integer.toString(pairs));
+                    }
                 }
-                }
-                /*if(d1==d2){
-                    pairs++;
-                    lblPairs.setText(Integer.toString(pairs));
-                }*/
                 if(positions>=50){
                     lblWinner.setText("Player 1");
                     btnPlayer.setEnabled(false);
-                    positions=0;
                 }
-                
                 if(nump==2){
-                    //do{
-                                if(turn%2==0){
-                                    lblTurn.setText("1");
-                                    btnPlayer.setText("Play-Player 1");
-                                    player1_po+=(d1+d2);
-                                    lblPositions.setText(Integer.toString(player1_po));
-                                    missing_player1=(50-player1_po);
-                                    lblMissing.setText(Integer.toString(missing_player1));
-                                    if(d1==d2){
-                                        pairsplayer1++;
-                                        lblPairs.setText(Integer.toString(pairsplayer1));
-                                    }
-                                }else{
-                                    lblTurn.setText("2");
-                                    btnPlayer.setText("Play-Player 2");
-                                    player2_po+=(d1+d2);
-                                    lblPositions.setText(Integer.toString(player2_po));
-                                    missing_player2=(50-player2_po);
-                                    lblMissing.setText(Integer.toString(missing_player2));
-                                    if(d1==d2){
-                                        pairsplayer2++;
-                                        lblPairs.setText(Integer.toString(pairsplayer2));
-                                    }
-                                }
-                                turn++;
-                                if(player1_po>=50){
-                                    lblWinner.setText("Player 1");
-                                    btnPlayer.setEnabled(false);
-                                    player1_po=0;
-                                }
-                                if(player2_po>=50){
-                                    lblWinner.setText("Player 2");
-                                    btnPlayer.setEnabled(false);
-                                    player2_po=0;
-                                }
-                    //}while(player1_po==50);
+                    if(turn%2==0){
+                        lblTurn.setText("1");
+                        btnPlayer.setText("Play-Player 2");
+                        player1_po+=(d1+d2);
+                        lblPositions.setText(Integer.toString(player1_po));
+                        missing_player1=(50-player1_po);
+                        lblMissing.setText(Integer.toString(missing_player1));
+                        if(d1==d2){
+                            pairsplayer1++;
+                            lblPairs.setText(Integer.toString(pairsplayer1));
+                        }
+                    }else{
+                        lblTurn.setText("2");
+                        btnPlayer.setText("Play-Player 1");
+                        player2_po+=(d1+d2);
+                        lblPositions.setText(Integer.toString(player2_po));
+                        missing_player2=(50-player2_po);
+                        lblMissing.setText(Integer.toString(missing_player2));
+                        if(d1==d2){
+                            pairsplayer2++;
+                            lblPairs.setText(Integer.toString(pairsplayer2));
+                        }
+                    }
+                    turn++;
+                    Returns();
+                    if(player1_po>=50){
+                        lblWinner.setText("Player 1");
+                        btnPlayer.setEnabled(false);
+                        //player1_po=0;
+                    }
+                    if(player2_po>=50){
+                        lblWinner.setText("Player 2");
+                        btnPlayer.setEnabled(false);
+                        //player2_po=0;
+                    }
+                }
+                if(nump==3){
+                    if(!(turn2%2==0)){
+                        lblTurn.setText("1");
+                        btnPlayer.setText("Play-Player 2");
+                        player1_po+=(d1+d2);
+                        lblPositions.setText(Integer.toString(player1_po));
+                        missing_player1=(50-player1_po);
+                        lblMissing.setText(Integer.toString(missing_player1));
+                        if(d1==d2){
+                            pairsplayer1++;
+                            lblPairs.setText(Integer.toString(pairsplayer1));
+                        }
+                    }else if(turn2%2==0){
+                        lblTurn.setText("2");
+                        btnPlayer.setText("Play-Player 1");
+                        player2_po+=(d1+d2);
+                        lblPositions.setText(Integer.toString(player2_po));
+                        missing_player2=(50-player2_po);
+                        lblMissing.setText(Integer.toString(missing_player2));
+                        if(d1==d2){
+                            pairsplayer2++;
+                            lblPairs.setText(Integer.toString(pairsplayer2));
+                        }
+                    }else if(!(turn2%2==0)){
+                            lblTurn.setText("3");
+                            btnPlayer.setText("Play-Player 3");
+                            }
+                    turn2+=2;
                 }
                 
                 break;
             case "Intermediate":
+                if(nump==1){
+                    positions+=(d1+d2);
+                    lblPositions.setText(Integer.toString(positions));
+                    missing_p=(100-positions);
+                    lblMissing.setText(Integer.toString(missing_p));
+                    lblTurn.setText("1");
+                    if(d1==d2){
+                        pairs++;
+                        lblPairs.setText(Integer.toString(pairs));
+                    }
+                    if(positions>=100){
+                        lblWinner.setText("Player 1");
+                        btnPlayer.setEnabled(false);
+                        positions=0;
+                    }
+                }
+                if(nump==2){
+                    if(turn%2==0){
+                        lblTurn.setText("1");
+                        btnPlayer.setText("Play-Player 2");
+                        player1_po+=(d1+d2);
+                        lblPositions.setText(Integer.toString(player1_po));
+                        missing_player1=(100-player1_po);
+                        lblMissing.setText(Integer.toString(missing_player1));
+                        if(d1==d2){
+                            pairsplayer1++;
+                            lblPairs.setText(Integer.toString(pairsplayer1));
+                        }
+                    }else{
+                        lblTurn.setText("2");
+                        btnPlayer.setText("Play-Player 1");
+                        player2_po+=(d1+d2);
+                        lblPositions.setText(Integer.toString(player2_po));
+                        missing_player2=(100-player2_po);
+                        lblMissing.setText(Integer.toString(missing_player2));
+                        if(d1==d2){
+                            pairsplayer2++;
+                            lblPairs.setText(Integer.toString(pairsplayer2));
+                        }
+                    }
+                    turn++;
+                    Returns();
+                    if(player1_po>=100){
+                        lblWinner.setText("Player 1");
+                        btnPlayer.setEnabled(false);
+                    }
+                    if(player2_po>=100){
+                        lblWinner.setText("Player 2");
+                        btnPlayer.setEnabled(false);
+                    }
+                }
                 break;
             case "Advanced":
+                if(nump==1){
+                    positions+=(d1+d2);
+                    lblPositions.setText(Integer.toString(positions));
+                    missing_p=(200-positions);
+                    lblMissing.setText(Integer.toString(missing_p));
+                    lblTurn.setText("1");
+                    if(d1==d2){
+                        pairs++;
+                        lblPairs.setText(Integer.toString(pairs));
+                    }
+                    if(positions>=200){
+                        lblWinner.setText("Player 1");
+                        btnPlayer.setEnabled(false);
+                    }
+                }
+                if(nump==2){
+                    if(turn%2==0){
+                        lblTurn.setText("1");
+                        btnPlayer.setText("Play-Player 2");
+                        player1_po+=(d1+d2);
+                        lblPositions.setText(Integer.toString(player1_po));
+                        missing_player1=(200-player1_po);
+                        lblMissing.setText(Integer.toString(missing_player1));
+                        if(d1==d2){
+                            pairsplayer1++;
+                            lblPairs.setText(Integer.toString(pairsplayer1));
+                        }
+                    }else{
+                        lblTurn.setText("2");
+                        btnPlayer.setText("Play-Player 1");
+                        player2_po+=(d1+d2);
+                        lblPositions.setText(Integer.toString(player2_po));
+                        missing_player2=(200-player2_po);
+                        lblMissing.setText(Integer.toString(missing_player2));
+                        if(d1==d2){
+                            pairsplayer2++;
+                            lblPairs.setText(Integer.toString(pairsplayer2));
+                        }
+                    }
+                    turn++;
+                    Returns();
+                    if(player1_po>=200){
+                        lblWinner.setText("Player 1");
+                        btnPlayer.setEnabled(false);
+                    }
+                    if(player2_po>=200){
+                        lblWinner.setText("Player 2");
+                        btnPlayer.setEnabled(false);
+                    }
+                }
                 break;
-                
-        }
-        
-        
-        
-        
-        
-        
-        
+        } 
     }//GEN-LAST:event_btnPlayerActionPerformed
-
+    public void Returns(){
+        int returns1=0,returns2=0;
+        if(player2_po==player1_po){
+            player1_po=0;
+            returns1++;
+            lblReturn.setText(Integer.toString(returns1));
+        }else if(player1_po==player2_po){
+            player2_po=0;
+            returns2++;
+            lblReturn.setText(Integer.toString(returns2));
+        }
+    }
     private void btnConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigActionPerformed
         // Config Params
         Config params=new Config();
@@ -637,6 +728,7 @@ public class Number_race extends javax.swing.JFrame {
         lblDice2.setIcon(new ImageIcon(getClass().getResource("/gifs/dado_in.gif")));
         lblPositions.setText("#");
         lblTurn.setText("#");
+        lblReturn.setText("#");
         lblMissing.setText("#");
         lblPairs.setText("0");
         btnPlayer.setText("Play-Player #");
@@ -648,6 +740,10 @@ public class Number_race extends javax.swing.JFrame {
         player1_po=0;
         player2_po=0;
         turn=2;
+        turn2=1;
+        positions=0;
+        cmbNumberPlayers.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3"}));
+        cmbLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basic", "Intermediate", "Advanced"}));
     }//GEN-LAST:event_btnAgainActionPerformed
 
     /**
@@ -697,7 +793,6 @@ public class Number_race extends javax.swing.JFrame {
         }
         
     }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAboutOf;
     private javax.swing.JButton btnAgain;

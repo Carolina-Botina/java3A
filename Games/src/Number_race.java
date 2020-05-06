@@ -166,8 +166,11 @@ public class Number_race extends javax.swing.JFrame {
         lblDice2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gifs/dado_in.gif"))); // NOI18N
         lblDice2.setBorder(null);
 
+        btnPlayer.setBackground(new java.awt.Color(250, 142, 8));
+        btnPlayer.setFont(new java.awt.Font("FreeSans", 3, 18)); // NOI18N
         btnPlayer.setText("Play-Player #");
         btnPlayer.setEnabled(false);
+        btnPlayer.setOpaque(false);
         btnPlayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPlayerActionPerformed(evt);
@@ -281,6 +284,8 @@ public class Number_race extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnConfig.setBackground(new java.awt.Color(250, 142, 8));
+        btnConfig.setFont(new java.awt.Font("FreeSans", 3, 18)); // NOI18N
         btnConfig.setText("Config params");
         btnConfig.setEnabled(false);
         btnConfig.addActionListener(new java.awt.event.ActionListener() {
@@ -289,6 +294,8 @@ public class Number_race extends javax.swing.JFrame {
             }
         });
 
+        btnAgain.setBackground(new java.awt.Color(250, 142, 8));
+        btnAgain.setFont(new java.awt.Font("FreeSans", 3, 18)); // NOI18N
         btnAgain.setText("Try again");
         btnAgain.setEnabled(false);
         btnAgain.addActionListener(new java.awt.event.ActionListener() {
@@ -297,6 +304,8 @@ public class Number_race extends javax.swing.JFrame {
             }
         });
 
+        btnAboutOf.setBackground(new java.awt.Color(250, 142, 8));
+        btnAboutOf.setFont(new java.awt.Font("FreeSans", 3, 18)); // NOI18N
         btnAboutOf.setText("About of");
         btnAboutOf.setEnabled(false);
         btnAboutOf.addActionListener(new java.awt.event.ActionListener() {
